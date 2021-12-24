@@ -895,7 +895,6 @@ Parent's Registration
   margin-left: 50px;
 }
 </style> 
-<div class="form">
  <div class="sc_login text-center" style="margin-top: 25px;"></div></div><div class="col-md-8"><div id="stm-lms-register"
  class="vue_is_disabled"
  v-init="site_key = ''"
@@ -904,16 +903,16 @@ Parent's Registration
         type="text"
         name="login"
         v-model="login"
-        placeholder="First Middle Last" pattern="[A-Za-z ]{5,20}" title="Minimum length should be 5 and maximum is 20" required></div></div>
+        placeholder="First Middle Last"/></div></div>
         <div class="row"><div class="col-md-7"><div class="form-group"> Note: Kindly verify the mail id twice. Once payment is done, activation link is send to the provided mail id.</div></div></div>
         <div class="col-md-7"><div class="form-group"> <label class="heading_font">E-mail Id</label> <input class="form-control"
         type="email"
         name="email"
         v-model="email"
-        placeholder="E-mail Address" title="Email must contain '@' " required></div></div></div><div class="row"><div class="col-md-7"><div class="form-group"> <label class="heading_font">Mobile No.</label> <input class="form-control"
+        placeholder="E-mail Address"/></div></div></div><div class="row"><div class="col-md-7"><div class="form-group"> <label class="heading_font">Mobile No.</label> <input class="form-control"
         type="tel"
         name="phone"
-        placeholder="Mobile Number" pattern="[0-9]{10}" title="Contact number should be in '+91 0000000000' this format" required></div></div><div v-for="(profileField, index) in profileDefaultFieldsForRegister" class="col-md-7"><div class="form-group"> <label class="heading_font" v-html="profileField.label"></label> <input class="form-control" v-if="index !== 'description'" type="text" v-model="profileField.value" :placeholder="profileField.placeholder" :required="profileField.required" /><textarea class="form-control" v-if="index === 'description'" v-model="profileField.value" :placeholder="profileField.placeholder" :required="profileField.required"></textarea></div></div></div><div class="row additional-fields" v-if="additionalRegisterFields.length"
+        placeholder="Mobile Number"/></div></div><div v-for="(profileField, index) in profileDefaultFieldsForRegister" class="col-md-7"><div class="form-group"> <label class="heading_font" v-html="profileField.label"></label> <input class="form-control" v-if="index !== 'description'" type="text" v-model="profileField.value" :placeholder="profileField.placeholder" :required="profileField.required" /><textarea class="form-control" v-if="index === 'description'" v-model="profileField.value" :placeholder="profileField.placeholder" :required="profileField.required"></textarea></div></div></div><div class="row additional-fields" v-if="additionalRegisterFields.length"
         v-for="(field, index) in additionalRegisterFields"><div class="col-md-8"><div class="form-group"> <label class="heading_font" v-if="typeof field.label !== 'undefined'" v-html="field.label"></label> <input class="form-control"
         v-if="field.type === 'text' || field.type === 'tel' || field.type === 'email'"
         :placeholder="field.placeholder ? field.placeholder : ''"
@@ -984,9 +983,9 @@ Parent's Registration
         v-else> Loading... </span> </label> <i v-if="field.value" class="fas fa-times" @click="field.value = ''"></i> <i v-else class="fas fa-paperclip"></i></div><div class="field-description" v-if="field.description" v-html="field.description"></div></div></div></div>
         <div class="row"><div class="col-md-7"><div class="stm_lms_register_wrapper__actions"><div class="form-group">
        <label class="heading_font" style="margin-left: 10px;">Product</label> 
-        <select style="margin-left: 00px; width: 370px;" name="products" id="products">
-                <option value="nothing" disabled selected>Select Product</option>
-                <option value="../../user-account/index.html">JEE Package - 1 Year</option>
+        <select style="margin-left: 00px; width: 370px;" class="disable-select form-control" v-model="auditory" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$ProductDropDownList\&#39;,\&#39;\&#39;)&#39;, 0)" id="ContentPlaceHolder1_ProductDropDownList" class="selectpicker">
+                <option selected="selected" value="">Select Product</option>
+                <option value="1">JEE Package - 1 Year</option>
                 <option value="2">NEET Package - 1 Year</option>
                 <option value="3">JEE Package - 2 Years</option>
                 <option value="4">NEET Package - 2 Years</option>
@@ -1001,17 +1000,6 @@ Parent's Registration
         <span id="ContentPlaceHolder1_RequiredFieldValidator3" style="color:MediumVioletRed;font-size:13px;font-family:'Segoe UI', Tahoma, Calibri;visibility:hidden;">Please select Product.</span>
         </div>
         </div>
-        <script>
-            var urlMenu = document.getElementById('products');
-            urlMenu.onchange = function()
-            {
-                var useroption = this.options[this.selectedIndex];
-                if (useroption.value != "nothing")
-                {
-                    window.open(useroption.value,"JEE Package - 1 Year NEET Package - 1 Year JEE Package - 2 Years NEET Package - 2 Years JEE + NEET Package - 1 Year JEE + NEET Package - 2 Years Campus Pro Package - 1 Year Campus Pro Package - 2 Years Pocket Aptitude Package - 1 Year Pocket Aptitude Package - 2 Years","");
-                }
-            }
-        </script>
         
         <script type="text/javascript">
         //<![CDATA[
@@ -1020,25 +1008,25 @@ Parent's Registration
         </script>
         <div id="ContentPlaceHolder1_pnlHelloWorld">
         <div class="row">
-        <label class="col-md-2 col-md-offset-2" style="font-family: 'Segoe UI',Tahoma, Calibri; font-weight: lighter; font-size: 15px; ">Product Price</label>
+        <label class="col-md-2 col-md-offset-2" style="font-family: 'Segoe UI',Tahoma, Calibri; font-weight: lighter; font-size: 18px; ">Product Price</label>
         <div class="col-md-6">
         <span id="ContentPlaceHolder1_PriceOfProductLabel" style="font-family: 'Segoe UI',Tahoma, Calibri; font-size: 18px; margin-top:5px">0</span>
-        <span id="ContentPlaceHolder1_Label1" style="font-family: 'Segoe UI',Tahoma, Calibri;  font-size: 15px; margin-top:5px"> ₹</span>
+        <span id="ContentPlaceHolder1_Label1" style="font-family: 'Segoe UI',Tahoma, Calibri;  font-size: 18px; margin-top:5px"> ₹</span>
         </div>
         </div>
         <br />
         <div class="row">
-        <label class="col-md-2 col-md-offset-2" style="font-family: 'Segoe UI',Tahoma, Calibri; font-weight: lighter; font-size: 15px; ">0% GST </label>
+        <label class="col-md-2 col-md-offset-2" style="font-family: 'Segoe UI',Tahoma, Calibri; font-weight: lighter; font-size: 18px; ">0% GST </label>
         <div class="col-md-6">
-        <span id="ContentPlaceHolder1_GstPriceOfProductLabel" style="font-family: 'Segoe UI',Tahoma, Calibri;  font-size: 15px; margin-top:5px">0</span>
-        <span id="ContentPlaceHolder1_Label2" style="font-family: 'Segoe UI',Tahoma, Calibri;  font-size: 15px; margin-top:5px"> ₹</span>
+        <span id="ContentPlaceHolder1_GstPriceOfProductLabel" style="font-family: 'Segoe UI',Tahoma, Calibri;  font-size: 18px; margin-top:5px">0</span>
+        <span id="ContentPlaceHolder1_Label2" style="font-family: 'Segoe UI',Tahoma, Calibri;  font-size: 18px; margin-top:5px"> ₹</span>
         </div>
         </div>
         <br />
         <div class="row">
-        <label class="col-md-2 col-md-offset-2" style="font-family: 'Segoe UI',Tahoma, Calibri; font-weight: lighter; font-size: 15px; ">Total Price</label>
+        <label class="col-md-2 col-md-offset-2" style="font-family: 'Segoe UI',Tahoma, Calibri; font-weight: lighter; font-size: 18px; ">Total Price</label>
         <div class="col-md-6">
-        <span id="ContentPlaceHolder1_TotalPriceOfProductLabel" style="font-family: 'Segoe UI',Tahoma, Calibri;  font-size: 15px; margin-top:5px">0</span>
+        <span id="ContentPlaceHolder1_TotalPriceOfProductLabel" style="font-family: 'Segoe UI',Tahoma, Calibri;  font-size: 18px; margin-top:5px">0</span>
         <span id="ContentPlaceHolder1_Label3" style="font-family: 'Segoe UI',Tahoma, Calibri;  font-size: 18px; margin-top:5px"> ₹</span>
         </div>
         </div>
@@ -1090,7 +1078,7 @@ Parent's Registration
         <div class="row">
         <div class="col-md-1 col-md-offset-1">
         </div>
-        <button  type="submit" value="Signup & Proceed to Pay" id="ContentPlaceHolder1_SignupButton" Class="btn btn-success col-md-4" style="margin-left:15px;font-family: 'Segoe UI', Tahoma, Calibri; font-size: 15px;" onclick="accept1(); return validatepass()">Signup & proceed to Pay</button>
+        <button onclick="myFunction()" type="submit" value="Signup & Proceed to Pay" id="ContentPlaceHolder1_SignupButton" Class="btn btn-success col-md-4" style="margin-left:80px;font-family: 'Segoe UI', Tahoma, Calibri; font-size: 15px;" />Signup & proceed to Pay</button>
         </div> 
         <p id="demo"></p>
 
@@ -1098,11 +1086,11 @@ Parent's Registration
 function myFunction() {
   var txt;
   if (confirm("Thank You!!")) {
-    window.location = '../../user-account/index.html';
+   window.location = "../../user-account/index.html";
   } else {
     window.location = "../../user-account/index.html";
   }
-  document.getElementById("demo").innerHTML = txt;
+  document.getElementById("demo").innerHTML = window.location;
 }
 </script>
 
